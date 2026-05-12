@@ -1,0 +1,18 @@
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "shell": "powershell",
+            "command": "$j = [Console]::In.ReadToEnd() | ConvertFrom-Json; $fp = [string]($j.tool_input.file_path); if ($fp -match '\\.claude[\\\\/]commands[\\\\/].*\\.md') { powershell -ExecutionPolicy Bypass -File 'd:\\project\\claude_code\\hex-skill-lab\\hex-skill-lab\\auto_script\\update-skills-list.ps1' }",
+            "timeout": 30,
+            "statusMessage": "Updating SKILLS.md..."
+          }
+        ]
+      }
+    ]
+  }
+}

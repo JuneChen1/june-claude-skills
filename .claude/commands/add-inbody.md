@@ -100,6 +100,8 @@ python auto_script/generate_inbody_excel.py --move
   骨骼肌重：X.X kg → X.X kg（±X.X kg）
   體脂肪率：X.X% → X.X%（±X.X%）
   身體總水量：X.X L → X.X L（±X.X L）
+
+（一段 2-3 句的中文總結，總結近一個月與半年的整體趨勢，點出最明顯的變化方向）
 ```
 
 ## 注意事項
@@ -107,4 +109,4 @@ python auto_script/generate_inbody_excel.py --move
 - 若欄位在圖片中看不清楚，填 null 並在回報中標注「請人工確認」
 - 不修改 `profile` 欄位（id, height_cm, age, gender）
 - 不刪除任何現有記錄
-- 使用者說「數據變化」、「inbody變化」、「身體變化」時，直接讀取 `Inbody/inbody_data.json` 並輸出 1 個月與 6 個月變化摘要，不需要其他步驟
+- 使用者說「數據變化」、「inbody變化」、「身體變化」時，直接讀取 `Inbody/inbody_data.json` 並輸出 1 個月與 6 個月變化摘要（含敘述），不需要其他步驟
