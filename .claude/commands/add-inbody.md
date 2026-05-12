@@ -1,3 +1,9 @@
+---
+name: add-inbody
+name_zh: 新增 InBody 數據
+description: 新增 InBody 量測數據：自動讀取圖片、解析數據、更新 JSON 與 Excel。
+---
+
 # Add InBody
 
 新增 InBody 量測數據：自動讀取圖片、解析數據、更新 JSON 與 Excel。

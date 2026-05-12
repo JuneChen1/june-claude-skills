@@ -1,5 +1,6 @@
 ---
 name: skill-writing-guide
+name_zh: Skill 寫作教練
 description: 先訪談使用者要寫的 skill 類型、輸入輸出、工具風險與使用情境，再產生或審查可直接使用的 SKILL.md。
 ---
 

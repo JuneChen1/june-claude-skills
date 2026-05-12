@@ -1,5 +1,6 @@
 ---
 name: retrospective
+name_zh: 覆盤
 description: 先確認覆盤對象、目標與角度，再對一次工作、學習、對話或 skill 使用過程做覆盤，產出下一版改進建議。
 ---
 

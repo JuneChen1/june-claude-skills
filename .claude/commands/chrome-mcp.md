@@ -1,5 +1,6 @@
 ---
 name: chrome-mcp
+name_zh: 瀏覽器自動化
 description: 使用 Chrome MCP 或瀏覽器自動化工具協助開網頁、點擊、填表單、截圖與檢查頁面狀態。適合操作使用者有權限使用的網站，不適合大量爬蟲。
 ---
 

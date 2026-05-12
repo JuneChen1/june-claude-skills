@@ -1,5 +1,6 @@
 ---
 name: agent-launcher
+name_zh: Agent 分工設計
 description: 引導使用者設計自己的 agent 分工，再根據任務啟動或切換專屬 agent。適合建立研究、寫作、資料分析、程式開發、規劃與審查等角色。
 ---
 

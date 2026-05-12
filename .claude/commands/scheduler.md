@@ -1,5 +1,6 @@
 ---
 name: scheduler
+name_zh: 排程助理
 description: 使用已授權的行事曆資料協助找空檔、安排會議與檢查衝突。第一次使用時先建立排程偏好，適合搭配 Google Calendar API 或行事曆 MCP 工具。
 ---
 

@@ -1,5 +1,6 @@
 ---
 name: nutrition-log-review
+name_zh: 飲食紀錄分析
 description: 先訪談使用者的飲食目標、限制與偏好，再協助分析飲食紀錄並提出可執行建議。適合日常飲食回顧，不取代醫療診斷。
 ---
 

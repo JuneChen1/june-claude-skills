@@ -1,5 +1,6 @@
 ---
 name: csv-financial-report
+name_zh: CSV 財務報表
 description: 先確認 CSV 欄位、分類規則與匿名化需求，再用使用者提供的 CSV 或表格資料產生分類統計報表。
 ---
 

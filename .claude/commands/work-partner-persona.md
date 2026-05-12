@@ -1,5 +1,6 @@
 ---
 name: work-partner-persona
+name_zh: 工作合夥人人設
 description: 引導使用者逐步建立自己的工作合夥人 Persona Skill。先訪談使用者的需求、關係、語氣與邊界，再產生可直接使用的 SKILL.md。
 ---
 
