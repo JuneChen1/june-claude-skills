@@ -1,21 +1,21 @@
 import { SlashCommandBuilder } from 'discord.js';
-import { SYSTEM_PROMPT, INITIAL_MESSAGE } from '../skills/nutrition.js';
+import { SYSTEM_PROMPT, INITIAL_MESSAGE } from '../skills/retrospective.js';
 import { createSession, getSession, addMessages } from '../utils/sessions.js';
 import { getClient, splitMessage } from '../utils/anthropic.js';
 
-export const nutritionCommand = {
+export const retrospectiveCommand = {
   data: new SlashCommandBuilder()
-    .setName('nutrition')
-    .setDescription('開始飲食紀錄分析'),
+    .setName('retro')
+    .setDescription('開始覆盤一次任務或行動'),
 
   async execute(interaction) {
-    createSession(interaction.user.id, 'nutrition');
+    createSession(interaction.user.id, 'retrospective');
     addMessages(interaction.user.id, [{ role: 'assistant', content: INITIAL_MESSAGE }]);
     await interaction.reply(INITIAL_MESSAGE);
   },
 };
 
-export async function handleNutritionMessage(message) {
+export async function handleRetrospectiveMessage(message) {
   const session = getSession(message.author.id);
   const userMessage = { role: 'user', content: message.content };
 

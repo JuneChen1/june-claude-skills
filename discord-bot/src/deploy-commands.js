@@ -1,10 +1,20 @@
 import { REST, Routes } from 'discord.js';
 import { config } from 'dotenv';
 import { nutritionCommand } from './commands/nutrition.js';
+import { retrospectiveCommand } from './commands/retrospective.js';
+import { routePlannerCommand } from './commands/route-planner.js';
+import { workPartnerCommand } from './commands/work-partner.js';
+import { helpCommand } from './commands/help.js';
 
 config();
 
-const commands = [nutritionCommand.data.toJSON()];
+const commands = [
+  nutritionCommand.data.toJSON(),
+  retrospectiveCommand.data.toJSON(),
+  routePlannerCommand.data.toJSON(),
+  workPartnerCommand.data.toJSON(),
+  helpCommand.data.toJSON(),
+];
 const rest = new REST().setToken(process.env.DISCORD_TOKEN);
 
 (async () => {

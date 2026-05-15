@@ -1,21 +1,21 @@
 import { SlashCommandBuilder } from 'discord.js';
-import { SYSTEM_PROMPT, INITIAL_MESSAGE } from '../skills/nutrition.js';
+import { SYSTEM_PROMPT, INITIAL_MESSAGE } from '../skills/work-partner.js';
 import { createSession, getSession, addMessages } from '../utils/sessions.js';
 import { getClient, splitMessage } from '../utils/anthropic.js';
 
-export const nutritionCommand = {
+export const workPartnerCommand = {
   data: new SlashCommandBuilder()
-    .setName('nutrition')
-    .setDescription('開始飲食紀錄分析'),
+    .setName('partner')
+    .setDescription('找溫柔陪跑者幫你解卡'),
 
   async execute(interaction) {
-    createSession(interaction.user.id, 'nutrition');
+    createSession(interaction.user.id, 'work-partner');
     addMessages(interaction.user.id, [{ role: 'assistant', content: INITIAL_MESSAGE }]);
     await interaction.reply(INITIAL_MESSAGE);
   },
 };
 
-export async function handleNutritionMessage(message) {
+export async function handleWorkPartnerMessage(message) {
   const session = getSession(message.author.id);
   const userMessage = { role: 'user', content: message.content };
 
