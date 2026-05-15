@@ -46,7 +46,8 @@ export async function extractPreferences(skill, messages) {
       messages: [...messages, { role: 'user', content: prompt }],
     });
     return response.content[0].text.trim();
-  } catch {
+  } catch (err) {
+    console.error(`[extractPreferences:${skill}]`, err);
     return null;
   }
 }

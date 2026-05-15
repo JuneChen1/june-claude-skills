@@ -1,4 +1,4 @@
-import { SlashCommandBuilder } from 'discord.js';
+import { SlashCommandBuilder, MessageFlags } from 'discord.js';
 import { getSession, getSkill, clearSession, saveSkillPreferences } from '../utils/sessions.js';
 import { extractPreferences } from '../utils/anthropic.js';
 
@@ -12,14 +12,14 @@ export const stopCommand = {
     const skill = getSkill(userId);
 
     if (!skill) {
-      await interaction.reply({ content: '目前沒有進行中的對話。', ephemeral: true });
+      await interaction.reply({ content: '目前沒有進行中的對話。', flags: MessageFlags.Ephemeral });
       return;
     }
 
-    await interaction.deferReply({ ephemeral: true });
+    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
     const session = getSession(userId);
 
-    if (skill && session.messages.length >= 2) {
+    if (session.messages.length >= 2) {
       const prefs = await extractPreferences(skill, session.messages);
       if (prefs) saveSkillPreferences(userId, skill, prefs);
     }
