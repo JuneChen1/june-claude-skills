@@ -1,4 +1,4 @@
-﻿# Claude Code Skills
+# Claude Code Skills
 
 ## Skills 清單
 
@@ -15,3 +15,44 @@
 | `/scheduler` | 排程助理 | 使用已授權的行事曆資料協助找空檔、安排會議與檢查衝突。第一次使用時先建立排程偏好，適合搭配 Google Calendar API 或行事曆 MCP 工具。 |
 | `/skill-writing-guide` | Skill 寫作教練 | 先訪談使用者要寫的 skill 類型、輸入輸出、工具風險與使用情境，再產生或審查可直接使用的 SKILL.md。 |
 | `/work-partner-persona` | 工作合夥人人設 | 引導使用者逐步建立自己的工作合夥人 Persona Skill。先訪談使用者的需求、關係、語氣與邊界，再產生可直接使用的 SKILL.md。 |
+
+---
+
+## 本地端運作說明
+
+### 前置需求
+
+- Node.js 18+（Discord bot、`/chrome-mcp` 使用）
+
+### 安裝步驟
+
+1. **Clone 專案**
+
+   ```bash
+   git clone https://github.com/JuneChen1/june-claude-skills.git
+   cd june-claude-skills
+   ```
+
+2. **（選用）啟用 Chrome MCP**
+
+   專案已在 .mcp.json 設定 chrome-devtools-mcp，首次執行 `/chrome-mcp` 時會自動透過 npx 安裝。需確認本機有 Node.js 可用。
+
+4. **（選用）設定 Python 虛擬環境**
+
+   `/add-inbody` skill 需要 Python 環境：
+
+   ```bash
+   python -m venv .venv
+   .venv\Scripts\Activate.ps1   # Windows PowerShell
+   pip install -r requirements.txt
+   ```
+
+### 使用 Skills
+
+在 Claude Code 對話中直接輸入指令名稱即可觸發，例如：
+
+```
+/retrospective
+/nutrition-log-review
+/chrome-mcp
+```
