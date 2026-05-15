@@ -5,6 +5,7 @@ __pycache__/
 Thumbs.db
 .env
 .env.*
+!.env.example
 *.log
 node_modules/
 dist/
@@ -15,3 +16,4 @@ credentials.json
 .claude/settings.local.json
 .mcp.json
 Inbody/
+discord-bot/data/

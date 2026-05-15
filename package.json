@@ -1,0 +1,14 @@
+{
+  "name": "june-skills-discord-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "node discord-bot/src/index.js",
+    "deploy": "node discord-bot/src/deploy-commands.js"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.30.0",
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  }
+}
