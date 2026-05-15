@@ -1,17 +1,30 @@
 import { SlashCommandBuilder } from 'discord.js';
-import { hasSession, deleteSession } from '../utils/sessions.js';
+import { getSession, getSkill, clearSession, saveSkillPreferences } from '../utils/sessions.js';
+import { extractPreferences } from '../utils/anthropic.js';
 
 export const stopCommand = {
   data: new SlashCommandBuilder()
     .setName('stop')
-    .setDescription('結束目前的對話'),
+    .setDescription('結束目前的對話並儲存偏好'),
 
   async execute(interaction) {
-    if (!hasSession(interaction.user.id)) {
+    const userId = interaction.user.id;
+    const skill = getSkill(userId);
+
+    if (!skill) {
       await interaction.reply({ content: '目前沒有進行中的對話。', ephemeral: true });
       return;
     }
-    deleteSession(interaction.user.id);
-    await interaction.reply({ content: '對話已結束。需要的時候再呼叫我。', ephemeral: true });
+
+    await interaction.deferReply({ ephemeral: true });
+    const session = getSession(userId);
+
+    if (skill && session.messages.length >= 2) {
+      const prefs = await extractPreferences(skill, session.messages);
+      if (prefs) saveSkillPreferences(userId, skill, prefs);
+    }
+
+    clearSession(userId);
+    await interaction.editReply('對話已結束，偏好已儲存。下次啟動時不需要重新設定。');
   },
 };

@@ -6,7 +6,8 @@ import { routePlannerCommand, handleRoutePlannerMessage } from './commands/route
 import { workPartnerCommand, handleWorkPartnerMessage } from './commands/work-partner.js';
 import { helpCommand } from './commands/help.js';
 import { stopCommand } from './commands/stop.js';
-import { getSkill, deleteSession, hasSession, cleanupSessions } from './utils/sessions.js';
+import { getSkill, getSession, clearSession, hasSession, saveSkillPreferences, cleanupSessions } from './utils/sessions.js';
+import { extractPreferences } from './utils/anthropic.js';
 
 const STOP_KEYWORDS = new Set(['結束', '掰掰', '掰', 'bye', 'exit', 'quit', '停止', '結束對話', '沒事了']);
 
@@ -66,13 +67,20 @@ client.on('messageCreate', async (message) => {
   if (message.author.bot) return;
   if (!hasSession(message.author.id)) return;
 
+  const userId = message.author.id;
+  const skill = getSkill(userId);
+
   if (STOP_KEYWORDS.has(message.content.trim().toLowerCase())) {
-    deleteSession(message.author.id);
-    await message.reply('對話已結束。需要的時候再呼叫我。');
+    const session = getSession(userId);
+    if (skill && session.messages.length >= 2) {
+      const prefs = await extractPreferences(skill, session.messages);
+      if (prefs) saveSkillPreferences(userId, skill, prefs);
+    }
+    clearSession(userId);
+    await message.reply('對話已結束，偏好已儲存。下次啟動時不需要重新設定。');
     return;
   }
 
-  const skill = getSkill(message.author.id);
   const handler = skillHandlers[skill];
   if (!handler) return;
   try {
