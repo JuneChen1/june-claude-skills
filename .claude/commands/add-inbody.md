@@ -61,6 +61,7 @@ SMI肌肉量指數(kg/m²)
 
 用 Read 工具讀取 `Inbody/inbody_data.json`。
 
+
 **Step 4 — 檢查重複並合併**
 
 - 若解析出的 date 已存在於 `records[]` 中，跳過並告知使用者「該日期已存在」
@@ -120,6 +121,6 @@ python auto_script/generate_inbody_excel.py --move
 ## 注意事項
 
 - 若欄位在圖片中看不清楚，填 null 並在回報中標注「請人工確認」
-- 不修改 `profile` 欄位（id, height_cm, age, gender）
+- 不修改 `profile` 欄位（id）
 - 不刪除任何現有記錄
 - 使用者說「數據變化」、「inbody變化」、「身體變化」時，直接讀取 `Inbody/inbody_data.json` 並輸出 1 個月與 6 個月變化摘要（含敘述），不需要其他步驟
