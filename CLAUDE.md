@@ -2,6 +2,14 @@
 
 這個專案有以下可用的 AI Skills。每個 skill 有明確的觸發情境，請依使用者需求自動切換。
 
+## Skill 管理規則
+
+每次在 `.claude/commands/` 新增或修改 skill 檔案時，必須同步更新：
+1. **CLAUDE.md**：在對應位置加入 skill 的觸發條件、工作流程與輸出格式說明
+2. **README.md**：在 Skills 清單表格加入一列（`/command` | 名稱 | 一句話說明）
+
+---
+
 ---
 
 ## work-partner-persona
