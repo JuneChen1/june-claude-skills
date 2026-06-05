@@ -15,6 +15,7 @@
 | `/scheduler` | 排程助理 | 使用已授權的行事曆資料協助找空檔、安排會議與檢查衝突。第一次使用時先建立排程偏好，適合搭配 Google Calendar API 或行事曆 MCP 工具。 |
 | `/skill-writing-guide` | Skill 寫作教練 | 先訪談使用者要寫的 skill 類型、輸入輸出、工具風險與使用情境，再產生或審查可直接使用的 SKILL.md。 |
 | `/work-partner-persona` | 工作合夥人人設 | 引導使用者逐步建立自己的工作合夥人 Persona Skill。先訪談使用者的需求、關係、語氣與邊界，再產生可直接使用的 SKILL.md。 |
+| `/hoyolab-to-x` | HoyoLab 轉 X 發文 | 提供 HoyoLab 文章連結，自動抓取標題與摹本碼，生成可直接複製到 X 的發文草稿。 |
 
 ---
 
