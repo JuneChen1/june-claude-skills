@@ -27,14 +27,15 @@
 6. 若找不到摹本碼 → 先輸出省略摹本碼區塊的草稿，再問使用者：「我在文章文字中找不到摹本碼，你有摹本碼嗎？如有請提供碼和地點名稱（如明智台），我幫你加上去」；**不繼續嘗試從圖片或 JavaScript 中提取**
 7. 若使用者補上摹本碼 → 輸出加入摹本碼區塊的完整草稿（重新計算字元數）
 8. 標籤判斷：
-   - 讀取 `x/tags.json` 的 `article_tag_to_hashtags` 欄位
-   - 比對文章標籤與 JSON 的 key，若有符合 → 將對應 value 的 hashtag 陣列加到草稿結尾
+   - 讀取 `x/tags.json`
+   - `global_hashtags`：每篇都加，固定附在草稿結尾
+   - `article_tag_to_hashtags`：比對文章標籤與 JSON 的 key，若有符合 → 將對應 value 的 hashtag 陣列附加在 global_hashtags 之前
    - 可同時符合多個 key（多組 hashtag 依序附加）
-   - 若無符合 → 省略 hashtag 區塊
+   - hashtag 區塊格式：[文章符合的 hashtags] [global_hashtags]
 
 ## 輸出格式
 
-含摹本碼 + 塵歌壺標籤時：
+含摹本碼時：
 
 ```
 [標題]
@@ -45,22 +46,10 @@
 HoYoLab：
 [完整連結]
 
-#塵歌壺 #sereniteapot
+[文章符合的 hashtags（若有）] [global_hashtags]
 ```
 
-含摹本碼、不含塵歌壺標籤時：
-
-```
-[標題]
-
-📌洞天摹數 (Replica ID)：
-[地點]：[摹本碼]
-
-HoYoLab：
-[完整連結]
-```
-
-**無摹本碼時（先輸出此版本，再詢問）**，含塵歌壺標籤：
+**無摹本碼時（先輸出此版本，再詢問）**：
 
 ```
 [標題]
@@ -68,16 +57,7 @@ HoYoLab：
 HoYoLab：
 [完整連結]
 
-#塵歌壺 #sereniteapot
-```
-
-無摹本碼、不含塵歌壺標籤：
-
-```
-[標題]
-
-HoYoLab：
-[完整連結]
+[文章符合的 hashtags（若有）] [global_hashtags]
 ```
 
 ## 字數檢查
