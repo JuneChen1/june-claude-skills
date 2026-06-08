@@ -19,3 +19,4 @@ Inbody/
 discord-bot/data/
 .vscode/
 x/
+.prettierrc.json

@@ -6,10 +6,27 @@ import { routePlannerCommand, handleRoutePlannerMessage } from './commands/route
 import { workPartnerCommand, handleWorkPartnerMessage } from './commands/work-partner.js';
 import { helpCommand } from './commands/help.js';
 import { stopCommand } from './commands/stop.js';
-import { getSkill, getSession, clearSession, hasSession, saveSkillPreferences, cleanupSessions } from './utils/sessions.js';
+import {
+  getSkill,
+  getSession,
+  clearSession,
+  hasSession,
+  saveSkillPreferences,
+  cleanupSessions,
+} from './utils/sessions.js';
 import { extractPreferences } from './utils/anthropic.js';
 
-const STOP_KEYWORDS = new Set(['結束', '掰掰', '掰', 'bye', 'exit', 'quit', '停止', '結束對話', '沒事了']);
+const STOP_KEYWORDS = new Set([
+  '結束',
+  '掰掰',
+  '掰',
+  'bye',
+  'exit',
+  'quit',
+  '停止',
+  '結束對話',
+  '沒事了',
+]);
 
 config();
 
@@ -31,7 +48,7 @@ client.commands.set(stopCommand.data.name, stopCommand);
 
 client.once('clientReady', async () => {
   const rest = new REST().setToken(process.env.DISCORD_TOKEN);
-  const commandDefs = [...client.commands.values()].map(c => c.data.toJSON());
+  const commandDefs = [...client.commands.values()].map((c) => c.data.toJSON());
   try {
     await rest.put(Routes.applicationCommands(client.user.id), { body: commandDefs });
   } catch (err) {
