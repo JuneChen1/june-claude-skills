@@ -236,9 +236,10 @@
 **工作流程：**
 1. 用 Chrome MCP 開啟 HoyoLab 文章連結，等待載入並關閉彈出視窗
 2. 從頁面擷取標題、文章標籤與摹本碼（洞天摹數 ID）；只從文字快照找純數字 ID，不讀圖片
-3. 摹本碼找到 → 照格式輸出；找不到 → 先輸出省略摹本碼的草稿，再問使用者補碼
-4. 若使用者提供遊戲截圖，從「洞天摹數」欄位讀取 ID，地點格式「A-B」只取 `-` 後的 B 部分
-5. 標籤判斷：讀取 `x/tags.json`；`global_hashtags` 每篇都加；`article_tag_to_hashtags` 比對文章標籤，符合則附加對應 hashtag 在 global 之前
+3. 伺服器：只在文章中明確讀到「亞服」或「台服」時才加入 🌿 那一行；讀到「亞服」→「🌿 Asia server」，讀到「台服」→「🌿 TW/HK/MO server」；兩者都沒讀到 → 省略整行 🌿
+4. 摹本碼找到 → 照格式輸出；找不到 → 先輸出省略摹本碼的草稿，再問使用者補碼
+5. 若使用者提供遊戲截圖，從「洞天摹數」欄位讀取 ID，地點格式「A-B」只取 `-` 後的 B 部分
+6. 標籤判斷：讀取 `x/tags.json`；`global_hashtags` 每篇都加；`article_tag_to_hashtags` 比對文章標籤，符合則附加對應 hashtag 在 global 之前
 
 **輸出格式：**
 
@@ -246,10 +247,11 @@
 ```
 [標題]
 
-📌洞天摹數 (Replica ID)：
-[地點]：[摹本碼]
+📌 洞天摹數 (Replica ID)
+🌿 Asia server（讀到「台服」則改成「🌿 TW/HK/MO server」；都沒讀到則省略此行）
+👉 [地點]：[摹本碼]
 
-HoYoLab：
+✨ 詳細介紹 (HoYoLab) 👇
 [完整連結]
 
 [文章符合的 hashtags（若有）] [global_hashtags]
@@ -259,7 +261,7 @@ HoYoLab：
 ```
 [標題]
 
-HoYoLab：
+✨ 詳細介紹 (HoYoLab) 👇
 [完整連結]
 
 [文章符合的 hashtags（若有）] [global_hashtags]
