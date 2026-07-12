@@ -247,12 +247,12 @@
 ```
 [標題]
 
-📌 洞天摹數 (Replica ID)
 🌿 Asia server（讀到「台服」則改成「🌿 TW/HK/MO server」；都沒讀到則省略此行）
-👉 [地點]：[摹本碼]
+📌 洞天摹數 (Replica ID)：[摹本碼]
+👉 區域：[地點]
 
 ✨ 詳細介紹 (HoYoLab) 👇
-[完整連結]
+[連結]（省略 https://www. ，格式為 hoyolab.com/article/[ID]）
 
 [文章符合的 hashtags（若有）] [global_hashtags]
 ```
@@ -262,7 +262,7 @@
 [標題]
 
 ✨ 詳細介紹 (HoYoLab) 👇
-[完整連結]
+[連結]（省略 https://www. ，格式為 hoyolab.com/article/[ID]）
 
 [文章符合的 hashtags（若有）] [global_hashtags]
 ```
