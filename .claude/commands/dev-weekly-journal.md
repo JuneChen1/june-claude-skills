@@ -17,7 +17,7 @@
 
 目前只整理以下專案的週記，不用每次詢問 repo 路徑：
 
-- **PicShare (image-sharing-platform)**：`d:/project/claude_code/image-sharing/image-sharing-platform`
+- **圖個方便 | PicShare (image-sharing-platform)**：`d:/project/claude_code/image-sharing/image-sharing-platform`
 
 之後若使用者要整理其他專案的週記，先詢問該專案的 git repo 路徑與暱稱，並在這裡新增一列。
 
